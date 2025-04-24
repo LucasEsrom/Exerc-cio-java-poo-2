@@ -1,61 +1,39 @@
-# Cadastro de Clientes – Projeto Java POO
+# Projeto Java – Cadastro de Clientes
 
-Projeto desenvolvido como parte da disciplina de Programação Orientada a Objetos (POO), utilizando os conceitos fundamentais de Java, como classes, herança, interfaces, classes abstratas, polimorfismo e tratamento de exceções.
+Este projeto foi desenvolvido como atividade da disciplina de Programação Orientada a Objetos. A proposta era aplicar conceitos como herança, classes abstratas, interfaces, polimorfismo e tratamento de exceções em um sistema simples.
 
-## Desenvolvedores
+## Alunos
 - Lucas Esrom Pinto de Oliveira  
 - Gabriel Oliveira dos Santos
 
----
+## Sobre o Projeto
 
-## Descrição da Solução
+O sistema criado simula um cadastro de clientes, podendo ser pessoa física (com CPF) ou pessoa jurídica (com CNPJ). O objetivo foi praticar a estruturação de classes em Java, usando os conceitos que aprendemos nas aulas até agora.
 
-Este sistema simula o cadastro de clientes Pessoa Física e Pessoa Jurídica, permitindo exibir seus dados e validar informações como CPF e CNPJ. O programa foi construído com foco em aplicar os conceitos aprendidos em aula de forma clara e organizada.
+## Estrutura do Código
 
----
+- **Pessoa**: classe abstrata que define atributos básicos como nome e documento.
+- **ClientePessoaFisica**: herda de Pessoa e representa clientes com CPF.
+- **ClientePessoaJuridica**: também herda de Pessoa e representa clientes com CNPJ.
+- **Cadastravel**: interface com os métodos cadastrar e excluir.
+- **Main**: classe principal onde o programa roda, com exemplo de cadastro e validação de dados.
 
-## Estrutura do Projeto
+## O que foi usado
 
-- `Pessoa` (classe abstrata):  
-  Define os atributos comuns (nome, documento) e exige que as subclasses implementem o método `exibirDados()`.
+- **Herança**: entre Pessoa e seus tipos de clientes.
+- **Classe Abstrata**: Pessoa, que não pode ser instanciada diretamente.
+- **Interface**: Cadastravel, que garante que os métodos sejam implementados.
+- **Polimorfismo**: com o método `exibirDados`, que funciona diferente dependendo da classe.
+- **Exceções**: usamos tratamento de erro na validação do CPF (como verificar se tem só números e 11 dígitos).
 
-- `ClientePessoaFisica` (subclasse de `Pessoa`):  
-  Representa um cliente com CPF. Implementa a interface `Cadastravel`.
+## Como testar
 
-- `ClientePessoaJuridica` (subclasse de `Pessoa`):  
-  Representa um cliente com CNPJ. Também implementa a interface `Cadastravel`.
+O código pode ser executado no Eclipse. Basta rodar a classe Main e seguir as instruções no terminal. O programa solicita os dados e valida o CPF. Se for digitado errado (como letras ou menos de 11 dígitos), aparece uma mensagem de erro.
 
-- `Cadastravel` (interface):  
-  Define o contrato com os métodos `cadastrar()` e `excluir()`.
+## Observações
 
-- `Main`:  
-  Classe principal com menu interativo. Permite cadastrar um cliente PF, validar CPF e exibir os dados cadastrados.
+O foco do trabalho foi mais na lógica e estrutura das classes do que em fazer uma interface visual ou um sistema completo de banco de dados. O projeto está separado em arquivos diferentes para facilitar a organização e a leitura.
 
----
 
-## Conceitos Aplicados
-
-| Conceito                  | Aplicação no Projeto |
-|---------------------------|----------------------|
-| Classe e Objeto           | Instância de clientes no `Main` |
-| Herança                   | `ClientePessoaFisica` e `ClientePessoaJuridica` herdam de `Pessoa` |
-| Classe Abstrata           | `Pessoa` serve como base para as subclasses |
-| Interface                 | `Cadastravel` define o contrato dos métodos `cadastrar()` e `excluir()` |
-| Polimorfismo              | `exibirDados()` é sobrescrito de formas distintas |
-| Tratamento de Exceções    | Validação do CPF com regex e `try/catch` |
-
----
-
-## Como Executar
-
-1. Clone o repositório ou importe o projeto no Eclipse.
-2. Execute o arquivo `Main.java`.
-3. Siga as instruções no terminal para cadastrar um cliente Pessoa Física.
-
----
-
-## Validação de CPF
-
-O CPF digitado deve conter exatamente 11 números. Letras, espaços ou símbolos geram erro com a seguinte mensagem:
 
 
